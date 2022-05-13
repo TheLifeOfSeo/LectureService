@@ -1,0 +1,51 @@
+body {
+    background-color: #333333;
+    color: whitesmoke;
+    font-family: 'TSTAR', 'ChungbukNationalUniversity-Regular', Helvetica, Arial, sans-serif;
+    text-align: center;
+    color: white;
+    margin: 0;
+    
+}
+
+@font-face {
+    font-family: 'TSTAR';
+    src:url('TSTAR-PRO-Bold.otf') format('woff'),
+        url('TSTAR-PRO-Bold.otf') format('woff2');
+    /* 이런식으로 weight를 지정해서 사용할 수도 있다!*/
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'ChungbukNationalUniversity-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/ChungbukNationalUniversity-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+p {
+    line-height: 200%;
+    vertical-align: middle;
+}
+
+.bg {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ),url( "earth-wallpaper.jpg" );
+    background-size: cover;
+    background-repeat : no-repeat;
+    background-position: center;
+    height : 100vh;
+}
+
+.board {
+    align-items: center;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
