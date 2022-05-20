@@ -53,57 +53,34 @@
                             </tr>
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <td><h5>오픈소스기초프로젝트</h5></td>
-                                <td>
-                                    <h5>강재구</h5>
-                                </td>
-                                <td>
-                                    <h5>
-                                        전공
-                                    </h5>
-                                </td>
-                                <td>
-                                    <h5>
-                                        3.7 (81)
-                                    </h5>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5>자료구조</h5>
-                                </td>
-                                <td>
-                                    <h5>이의종</h5>
-                                </td>
-                                <td>
-                                    <h5>
-                                        전공
-                                    </h5>
-                                </td>
-                                <td>
-                                    <h5>
-                                        4.3 (23)
-                                    </h5>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5>인간과 기계문명</h5>
-                                <td>
-                                    <h5>김연순</h5>
-                                </td>
-                                <td>
-                                    <h5>
-                                        교양
-                                    </h5>
-                                </td>
-                                <td>
-                                    <h5>
-                                        4.5 (62)
-                                    </h5>
-                                </td>
-                            </tr>
+                            <script>
+                                for(let i = 0; i < arr.length; i++) {
+                                    document.write("<tr>");
+                                        document.write("<td>");
+                                            document.write("<h5>");
+                                                    document.write(arr[i][0]);
+                                            document.write("</h5>");
+                                        document.write("</td>");
+                                        document.write("<td>");
+                                            document.write("<h5>");
+                                                document.write(arr[i][1]);
+                                            document.write("</h5>");
+                                        document.write("</td>");
+                                        document.write("<td>");
+                                            document.write("<h5>");
+                                                document.write(arr[i][2]);
+                                            document.write("</h5>");
+                                        document.write("</td>");
+                                        document.write("<td>");
+                                            document.write("<h5>");
+                                                document.write(arr[i][3] * 5);
+                                                document.write(" (" + arr[i][4] + ")");
+                                            document.write("</h5>");
+                                        document.write("</td>");
+                                    document.write("</tr>");
+                                }
+                                    
+                            </script>
                         </tfoot>
     
                     </table>
