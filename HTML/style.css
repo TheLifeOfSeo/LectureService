@@ -49,3 +49,94 @@ p {
     transform: translate(-50%, -50%);
     width: 100%;
 }
+
+.nav_bar {
+    display: grid;
+}
+
+#nav1 {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 32px;
+}
+
+#nav2 {
+    padding: 0 100px;
+    grid-template-columns: 100px 100px 100px;
+}
+
+#data {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.nav_bar h3 {
+    display: inline-block;
+}
+
+.nav_bar h4 {
+    display: inline-block;
+}
+
+.nav_bar h3:hover {
+    color: rgb(65, 65, 65);
+    cursor: pointer;
+}
+.nav_bar h4:hover {
+    color: rgb(65, 65, 65);
+    cursor: pointer;
+}
+
+table {
+    padding: 0 15%;
+}
+
+table h5 {
+    display: inline-block;
+}
+
+tr td:nth-child(1) {
+    width: 25%;
+    text-align: center;
+}
+
+tr td:nth-child(2) {
+    width: 15%;
+    text-align: center;
+}
+
+tr td:nth-child(3) {
+    width: 15%;
+    text-align: center;
+}
+tr td:nth-child(4) {
+    width: 15%;
+    text-align: center;
+}
+
+tr td:nth-child(1) h5:hover {
+    color: rgb(65, 65, 65);
+    cursor: pointer;
+}
+
+tr td:nth-child(2) h5:hover {
+    color: rgb(65, 65, 65);
+    cursor: pointer;
+}
+
+
+.sources {
+    padding-bottom: 60px;
+}
+
+.sources table{
+    margin: 0 auto;
+    align-items: center;
+    width: 80%;
+}
+
+.sources tfoot tr {
+    height: 20px;
+}
+
+/* .cart-list p {
+    font-size: 12px;
+} */

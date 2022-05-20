@@ -1,3 +1,10 @@
-const a = 4
+var arr = new Array(); 
 
-console.log('ball'+'So'+'Hard' + a)
+//arr[3][5]
+arr[0] = ["오픈소스기초프로젝트", "강재구", "전공", 3.7, 81];
+arr[1] = ["자료구조", "이의종", "전공", 4.3, 23];
+arr[2] = ["인간과 기계문명", "김연순", "교양", 4.5, 62];
+
+for (var i = 0; i < arr.length; i++) {
+    console.log(arr[i][1]);
+}

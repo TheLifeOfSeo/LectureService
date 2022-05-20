@@ -5,26 +5,111 @@
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>강의평 모아보기</title>
+    <script src="app.js"> </script>
+
 </head>
+
 <body>
     <div class="bg">
         <div class="board">
-            <div class="header">
-                <h1>Lecture Stats</h1>
-                <h2>모든 과목 조회</h2> <!-- 22-1학기 과목만 조회 가능-->
-                <h2>교양 과목 조회</h2>
-                <h2>교수별 조회</h2>
-                <h2>강의 순위 조회</h2>      <!-- 가로로 정렬 꼭 하기 -->
+            <h1>Lecture Stats</h1>
+            <nav class="nav_bar" id="nav1">
+                <span><h3>모든 과목 조회</h3></span> <!-- 22-1학기 과목만 조회 가능-->
+                <span><h3>전공 과목 조회</h3></span>
+                <span><h3>교수별 조회</h3></span>
+                <span><h3>강의 순위 조회</h3></span>      <!-- 가로로 정렬 꼭 하기 -->
+            </nav>
+            <div id="data">
+                <nav class="nav_bar" id="nav2">
+                    <span><h4>평가 높은 순</h4></span>
+                    <span><h4>평가 낮은 순</h4></span>
+                    <span><h4>평가 많은 순</h4></span>
+                </nav>
+                <div class="sources">
+                    <table>
+                        <tbody>
+                            <tr id="line">
+                                <td>
+                                    <h3>
+                                        강의명
+                                    </h3>
+                                </td>
+                                <td>
+                                    <h3>
+                                        교수명
+                                    </h3>
+                                </td>
+                                <td>
+                                    <h3>
+                                        구분
+                                    </h3>
+                                </td>
+                                <td>
+                                    <h3>
+                                        평가
+                                    </h3>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><h5>오픈소스기초프로젝트</h5></td>
+                                <td>
+                                    <h5>강재구</h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        전공
+                                    </h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        3.7 (81)
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>자료구조</h5>
+                                </td>
+                                <td>
+                                    <h5>이의종</h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        전공
+                                    </h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        4.3 (23)
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>인간과 기계문명</h5>
+                                <td>
+                                    <h5>김연순</h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        교양
+                                    </h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        4.5 (62)
+                                    </h5>
+                                </td>
+                            </tr>
+                        </tfoot>
+    
+                    </table>
+                </div>
             </div>
-            <div class="body">
-                <h3>평가 높은 순</h3>
-                <h3>평가 낮은 순</h3>
-                <h3>평가 많은 순</h3>
-                <p>강의명 : OOO</p>
-                <p>교수명 : OOO</p>
-                <p>구분 : 전공()</p>
-            </div>
+            
             <div class="test">
             </div>
             
