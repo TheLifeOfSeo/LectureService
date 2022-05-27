@@ -31,7 +31,7 @@ p {
 }
 
 .bg {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ),url( "earth-wallpaper.jpg" );
+    /* background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ),url( "earth-wallpaper.jpg" ); */
     background-size: cover;
     background-repeat : no-repeat;
     background-position: center;
@@ -39,68 +39,89 @@ p {
 }
 
 .board {
-    align-items: center;
-    height: auto;
-    align-items: center;
+    height: 100%;
     text-align: center;
+    align-items: center;
     position: absolute;
     top: 50%;
     left: 50%;
-    z-index: 999;
     transform: translate(-50%, -50%);
     width: 100%;
 }
 
 .nav_bar {
     display: grid;
-    padding: 0 10%;
+    padding: 0 5%;
 }
 
-#nav1 {
-    grid-template-columns: repeat(4, 1fr);
 
+#nav1 {
+    grid-template-columns: repeat(3, 1fr);
     column-gap: 5%;
-    
 }
 
 #nav2 {
-    grid-template-columns: 15% 15% 15%;
+    grid-template-columns: repeat(7, 1fr);
+    /* width: 50%; */
+    column-gap: 5%;
+}
+
+#nav3 {
+    /* width: 50%; */
+    grid-template-columns: 20% 20% 20% 40%;
+}
+
+#nav3 h5 {
+    font-size: 0.70em;
+    padding: 0 5%;
+}
+
+input {
+    width: 50%;
 }
 
 #data {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.nav_bar h3 {
+#nav_bar input {
     display: inline-block;
-    word-break: keep-all;
 }
-
 .nav_bar h4 {
     display: inline-block;
     word-break: keep-all;
 }
 
-.nav_bar h3:hover {
+.nav_bar h5 {
+    display: inline-block;
+    word-break: keep-all;
+    padding: 0 5%;
+}
+
+.nav_bar h4:hover {
     color: rgb(65, 65, 65);
     cursor: pointer;
 }
-.nav_bar h4:hover {
+.nav_bar h5:hover {
     color: rgb(65, 65, 65);
     cursor: pointer;
 }
 
 table {
-    padding: 0 15%;
-    min-width: 480px;
+    padding: 0 5%;
 }
+/* 
+#nav2 span {
+    min-width: 80px;
+    max-width: 120px;
+} */
 
 table h5 {
     display: inline-block;
 }
 
 tr td:nth-child(1) {
-    width: 25%;
+    width: 35%;
     text-align: center;
 }
 
@@ -110,7 +131,7 @@ tr td:nth-child(2) {
 }
 
 tr td:nth-child(3) {
-    width: 15%;
+    width: 10%;
     text-align: center;
 }
 tr td:nth-child(4) {
@@ -130,19 +151,19 @@ tr td:nth-child(2) h5:hover {
 
 
 .sources {
-    padding-bottom: 60px;
+    padding: 40px 0;
 }
 
 .sources table{
     margin: 0 auto;
     align-items: center;
-    width: 80%;
+    padding: 0 40px;
 }
 
 .sources tfoot tr {
     height: 20px;
 }
 
-/* .cart-list p {
-    font-size: 12px;
-} */
+.footer {
+    padding: 2% 0;
+}

@@ -5,7 +5,7 @@
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>강의평 모아보기</title>
+    <title>에브리타임 - 강의평 톺아보기</title>
     <script src="app.js"> </script>
 
 </head>
@@ -15,16 +15,32 @@
         <div class="board">
             <h1>Lecture Stats</h1>
             <nav class="nav_bar" id="nav1">
-                <span><h3>모든 과목 조회</h3></span> <!-- 22-1학기 과목만 조회 가능-->
-                <span><h3>전공 과목 조회</h3></span>
-                <span><h3>교수별 조회</h3></span>
-                <span><h3>강의 순위 조회</h3></span>      <!-- 가로로 정렬 꼭 하기 -->
+                <span><h4>과목별 조회</h4></span>
+                <span><h4>교수별 조회</h4></span>
+                <span><h4>강의 통계</h4></span>
             </nav>
             <div id="data">
                 <nav class="nav_bar" id="nav2">
-                    <span><h4>평가 높은 순</h4></span>
-                    <span><h4>평가 낮은 순</h4></span>
-                    <span><h4>평가 많은 순</h4></span>
+                    <span><h5>전공</h5></span>
+                    <span><h5>교양</h5></span>
+                    <span><h5>교직</h5></span>
+                    <span><h5>일선</h5></span>
+                    <!-- if (전공 == 참)일경우 document.write(밑에 3줄)-->
+                    <span><h5>단과대</h5></span>
+                    <span><h5>전공</h5></span>
+                    <span><h5>학년</h5></span>
+                    
+
+                    <!-- <span><input></span> -->
+                </nav>
+                <nav class="nav_bar" id="nav3">
+                    <span><h5>평가 높은 순</h5></span>
+                    <span><h5>평가 낮은 순</h5></span>
+                    <span><h5>평가 많은 순</h5></span>
+                    <span>
+                        <input>
+                        <h5>검색</h5>
+                    </span>
                 </nav>
                 <div class="sources">
                     <table>
@@ -52,6 +68,7 @@
                                 </td>
                             </tr>
                         </tbody>
+                        <!-- 10개마다 페이지 넘어가게 만들기 -->
                         <tfoot>
                             <script>
                                 for(let i = 0; i < arr.length; i++) {
@@ -86,9 +103,10 @@
                     </table>
                 </div>
             </div>
-            
-            <div class="test">
-            </div>
+        <div class="footer">
+            <p>Everytime Lecture Stats Viewer</p>
+            <p>By 4 Cute Python Lovers</p>
+        </div>
             
         </div>
         
