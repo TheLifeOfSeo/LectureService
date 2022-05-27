@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
+const fs = require("fs");
 
 app.get('/', function(req, res) {
-    res.render('/rml/LectureService/HTML/main.html')
+    fs.readFile('/rml/LectureService/HTML/main.html');
 })
 
 app.listen(8080, function () {
