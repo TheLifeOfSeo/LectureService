@@ -3,7 +3,7 @@ const app = express();
 const fs = require("fs");
 
 app.get('/', function(req, res) {
-    fs.readFile('/rml/LectureService/HTML/main.html');
+    fs.readFile('/HTML/main.html');
 })
 
 app.listen(8080, function () {
