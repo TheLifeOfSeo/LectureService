@@ -1,11 +1,18 @@
 const express = require('express');
 const app = express();
 const fs = require("fs");
+const http = require("http")
+let server = http.createServer(app)
 
-app.get('/', function(req, res) {
-    fs.readFile('/HTML/main.html');
+app.set('view engine', 'ejs')
+app.set('views', './views')
+
+app.use(express.static('statics'));
+
+app.get('/', function(req, res) { 
+    res.render("main.ejs")
 })
 
-app.listen(8080, function () {
-    console.log("Server Running at http://43.200.49.176:8080");
-});
+server.listen(8080, ()=> {
+    let a = "sd"
+})
