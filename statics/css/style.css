@@ -1,7 +1,7 @@
 body {
     background-color: #328bff;
     color: #f2f8ff;
-    font-family: 'TSTAR', 'ChungbukNationalUniversity-Regular', Helvetica, Arial, sans-serif;
+    font-family: 'TSTAR', 'paybooc-Medium', Helvetica, Arial, sans-serif;
     text-align: center;
     margin: 0;
     
@@ -18,6 +18,27 @@ body {
 @font-face {
     font-family: 'ChungbukNationalUniversity-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/ChungbukNationalUniversity-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'paybooc-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LeferiPoint-WhiteA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SUIT-Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Light.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -160,6 +181,7 @@ tr td:nth-child(2) h5:hover {
 
 .sources {
     padding: 40px 0;
+    
 }
 
 .sources table{
@@ -170,6 +192,7 @@ tr td:nth-child(2) h5:hover {
 
 .sources tfoot tr {
     height: 20px;
+    font-family: 'SUIT-Light';
 }
 
 .footer {
