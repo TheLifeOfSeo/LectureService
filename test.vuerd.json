@@ -1,0 +1,251 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -1,
+    "scrollLeft": -1,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "강의",
+        "comment": "",
+        "columns": [
+          {
+            "name": "unique_key",
+            "comment": "강의평가 URL 뒷주소",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 62.59294128417969,
+              "widthComment": 110.12092590332031,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "90c09e82-f98b-47e5-8d23-7babff985fa3"
+          },
+          {
+            "name": "",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "8027a507-dc83-49f8-90fb-339743e1d9fc"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 87,
+          "top": 60,
+          "zIndex": 67,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "fdaf2b61-17dd-4147-a0b9-19007b4d64ec"
+      },
+      {
+        "name": "강의평가",
+        "comment": "",
+        "columns": [
+          {
+            "name": "이름",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a14fe8ef-50c1-4956-89e9-8a0b76faf844"
+          },
+          {
+            "name": "별점",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "87bc8a0d-4c3a-437e-9da6-d2b6d266d6e5"
+          },
+          {
+            "name": "내용",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "f3478044-fa73-42d9-afd7-0a027f9098b0"
+          },
+          {
+            "name": "강의고유번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 69.469970703125,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "418cd4b4-c6d9-48d3-a728-5d493ca523d3"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 370,
+          "top": 398,
+          "zIndex": 76,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "e5753a28-0928-4ca6-b2bc-c1f4304f1ddf"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": []
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "fdaf2b61-17dd-4147-a0b9-19007b4d64ec",
+          "columnIds": [
+            "8027a507-dc83-49f8-90fb-339743e1d9fc"
+          ],
+          "x": 486.7138671875,
+          "y": 115,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "e5753a28-0928-4ca6-b2bc-c1f4304f1ddf",
+          "columnIds": [
+            "418cd4b4-c6d9-48d3-a728-5d493ca523d3"
+          ],
+          "x": 548.2349853515625,
+          "y": 398,
+          "direction": "top"
+        },
+        "constraintName": "fk_강의_to_강의평가",
+        "visible": true,
+        "id": "e46f3c39-7439-40dd-94f2-9f94a65e1ddc"
+      }
+    ]
+  }
+}

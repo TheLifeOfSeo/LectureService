@@ -1,9 +1,8 @@
 body {
-    background-color: #333333;
-    color: whitesmoke;
+    background-color: #0070FF;
+    color: #004faf;
     font-family: 'TSTAR', 'ChungbukNationalUniversity-Regular', Helvetica, Arial, sans-serif;
     text-align: center;
-    color: white;
     margin: 0;
     
 }
@@ -23,6 +22,9 @@ body {
     font-style: normal;
 }
 
+#title {
+    color: #e2efff;
+}
 
 p {
     line-height: 200%;
@@ -58,6 +60,7 @@ p {
 #nav1 {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 5%;
+    color: #e2efff;
 }
 
 #nav2 {
@@ -81,7 +84,7 @@ input {
 }
 
 #data {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: #e2efff;
 }
 
 #nav_bar input {
@@ -99,11 +102,11 @@ input {
 }
 
 .nav_bar h4:hover {
-    color: rgb(65, 65, 65);
+    color: #003c86;
     cursor: pointer;
 }
 .nav_bar h5:hover {
-    color: rgb(65, 65, 65);
+    color: #7bb6ff;
     cursor: pointer;
 }
 
@@ -140,12 +143,12 @@ tr td:nth-child(4) {
 }
 
 tr td:nth-child(1) h5:hover {
-    color: rgb(65, 65, 65);
+    color: #7bb6ff;
     cursor: pointer;
 }
 
 tr td:nth-child(2) h5:hover {
-    color: rgb(65, 65, 65);
+    color: #7bb6ff;
     cursor: pointer;
 }
 
@@ -165,5 +168,6 @@ tr td:nth-child(2) h5:hover {
 }
 
 .footer {
+    color: #7bb6ff;
     padding: 2% 0;
 }
