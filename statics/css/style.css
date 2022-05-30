@@ -1,6 +1,6 @@
 body {
-    background-color: #328bff;
-    color: #f2f8ff;
+    background-color: #1B5465;
+    color: white;
     font-family: 'TSTAR', 'paybooc-Medium', Helvetica, Arial, sans-serif;
     text-align: center;
     margin: 0;
@@ -23,8 +23,22 @@ body {
 }
 
 @font-face {
+    font-family: 'paybooc-Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'paybooc-Medium';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'paybooc-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Bold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -72,13 +86,15 @@ p {
     width: 100%;
 }
 
-/* .header {
-    background-color: aliceblue;
-} */
+.data {
+    border-style: solid none none none;
+    border-top: #292b2d 1px;
+}
 
 .nav_bar {
     display: grid;
     padding: 0 5%;
+    color:#F2F2F2
 }
 
 
@@ -92,6 +108,7 @@ p {
     grid-template-columns: repeat(7, 1fr);
     /* width: 50%; */
     column-gap: 5%;
+    background-color: #116F92;
 }
 
 #nav3 {
@@ -99,18 +116,21 @@ p {
     grid-template-columns: 20% 20% 20% 40%;
 }
 
-#nav3 h5 {
-    font-size: 0.70em;
-    padding: 0 5%;
-}
+/* #nav2 span{
+    background-color: #F87F0D;
+    border-radius: 12px;
+    height: 30px;
+    margin: 12px 0;
+    align-items: center;
+} */
 
 input {
     width: 50%;
 }
 
 #data {
-    background-color: #f2f8ff;
-    color: #003c84;
+    background-color: #F2F2F2;
+    color: black;
 }
 
 #nav_bar input {
@@ -128,11 +148,11 @@ input {
 }
 
 .nav_bar h4:hover {
-    color: #003c86;
+    color: #a494a5;
     cursor: pointer;
 }
 .nav_bar h5:hover {
-    color: #7bb6ff;
+    color: #a4a594;
     cursor: pointer;
 }
 
@@ -146,37 +166,66 @@ table {
 } */
 
 table h5 {
-    display: inline-block;
+    display: inline;
+    
 }
 
-tr td:nth-child(1) {
-    width: 35%;
+tbody {
+    font-family: 'paybooc-Medium';
+    font-weight: 600;
+}
+
+tfoot {
+    font-family: 'paybooc-Medium';
     text-align: center;
 }
 
-tr td:nth-child(2) {
-    width: 15%;
-    text-align: center;
+tfoot tr {
+    height: 24px;
 }
 
-tr td:nth-child(3) {
-    width: 10%;
-    text-align: center;
+/* tfoot tr:nth-child(2n+1) td:nth-child(2){
+    font-size: small;
+    color:#9a9a9a;
+} */
+
+tfoot tr:nth-child(2n) {
+    font-size: small;
+    color:#9a9a9a;
 }
-tr td:nth-child(4) {
-    width: 15%;
+tbody td:nth-child(1) {
+    width: 70%;
     text-align: center;
+    min-width: 240px;
+}
+
+tbody td:nth-child(2) {
+    text-align: center;
+    width: 20%;
+    min-width: 60px;
+}
+
+tbody td:nth-child(3) {
+    width: 20%;;
+    text-align: center;
+    min-width: 60px;
+}
+
+tfoot tr td:nth-child(1) {
+    text-align: left;
+}
+
+tfoot tr:nth-child(2n) td:nth-child(2) {
+    text-align: right;
+    width: 50%;
 }
 
 tr td:nth-child(1) h5:hover {
-    color: #7bb6ff;
+    color: #F26A1B;
     cursor: pointer;
 }
 
-tr td:nth-child(2) h5:hover {
-    color: #7bb6ff;
-    cursor: pointer;
-}
+
 
 
 .sources {
@@ -190,12 +239,11 @@ tr td:nth-child(2) h5:hover {
     padding: 0 40px;
 }
 
-.sources tfoot tr {
+.sources tfoot {
     height: 20px;
-    font-family: 'SUIT-Light';
 }
 
 .footer {
-    color: #f2f8ff;
+    /* color: #f2f8ff; */
     padding: 2% 0;
 }

@@ -17,7 +17,9 @@
     <div class="bg">
         <div class="board">
             <div class="header">
-                <h1 id="title">Lecture Stats</h1>
+                <span>
+                    <h1 id="title">Lecture Stats</h1>
+                </span>
                 <nav class="nav_bar" id="nav1">
                     <span><h4>과목별 조회</h4></span>
                     <span><h4>교수별 조회</h4></span>
@@ -32,7 +34,7 @@
                     <span><h5>교양</h5></span>
                     <span><h5>교직</h5></span>
                     <span><h5>일선</h5></span>
-                    <!-- if (전공 == 참)일경우 document.write(밑에 3줄)-->
+                    <!-- if (전공 == 참)일경우 document.write(밑에 3줄) -->
                     <span><h5>단과대</h5></span>
                     <span><h5>전공</h5></span>
                     <span><h5>학년</h5></span>
@@ -41,9 +43,9 @@
                     <!-- <span><input></span> -->
                 </nav>
                 <nav class="nav_bar" id="nav3">
-                    <span><h5>평가 높은 순</h5></span>
+                    <!-- <span><h5>평가 높은 순</h5></span>
                     <span><h5>평가 낮은 순</h5></span>
-                    <span><h5>평가 많은 순</h5></span>
+                    <span><h5>평가 많은 순</h5></span> -->
                     <span>
                         <input>
                         <h5>검색</h5>
@@ -53,58 +55,54 @@
                     <table>
                         <tbody>
                             <tr id="line">
-                                <td>
-                                    <h3>
-                                        강의명
-                                    </h3>
+                                <td colspan="2">
+                                    <h4>
+                                        강의
+                                    </h4>
                                 </td>
                                 <td>
-                                    <h3>
-                                        교수명
-                                    </h3>
+                                    <h4>
+                                        평점
+                                    </h4>
                                 </td>
                                 <td>
-                                    <h3>
-                                        구분
-                                    </h3>
-                                </td>
-                                <td>
-                                    <h3>
-                                        평가
-                                    </h3>
+                                    <h4>
+                                        평가 수
+                                    </h4>
                                 </td>
                             </tr>
                         </tbody>
                         <!-- 10개마다 페이지 넘어가게 만들기 -->
                         <tfoot>
-                            <script>
-                                for(let i = 0; i < arr.length; i++) {
-                                    document.write("<tr>");
-                                        document.write("<td>");
-                                            document.write("<h5>");
-                                                    document.write(arr[i][0]);
-                                            document.write("</h5>");
-                                        document.write("</td>");
-                                        document.write("<td>");
-                                            document.write("<h5>");
-                                                document.write(arr[i][1]);
-                                            document.write("</h5>");
-                                        document.write("</td>");
-                                        document.write("<td>");
-                                            document.write("<h5>");
-                                                document.write(arr[i][2]);
-                                            document.write("</h5>");
-                                        document.write("</td>");
-                                        document.write("<td>");
-                                            document.write("<h5>");
-                                                document.write(arr[i][3] * 5);
-                                                document.write(" (" + arr[i][4] + ")");
-                                            document.write("</h5>");
-                                        document.write("</td>");
-                                    document.write("</tr>");
-                                }
-                                    
-                            </script>
+                            <% for(let i = 0; i < arr.length; i++) { %>
+                                <tr>
+                                    <td id="lec_name" colspan="2">
+                                        <h5><%=arr[i][0]%></h5>
+                                    </td>
+                                    <td id="rate" rowspan="2">
+                                        <h5>
+                                            <%= arr[i][3] * 5%>
+                                        </h5>
+                                    </td>
+                                    <td id="rate_count" rowspan="2">
+                                        <h5>
+                                            <%= arr[i][4]%>
+                                        </h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5 id="teacher"><%=arr[i][1]%></h5>
+                                    </td>
+                                    <td>
+                                        <% if(arr[i][2] == "전공선택" || arr[i][2] == "전공필수" ) {%>
+                                            <h5><%=arr[i][5] + " - "%></h5>
+                                        <%}%>
+                                        <h5 id="division"><%=arr[i][2]%></h5>
+                                        
+                                    </td>
+                                </tr>
+                            <% } %>
                         </tfoot>
     
                     </table>
@@ -113,6 +111,7 @@
         <div class="footer">
             <p>Everytime Lecture Stats Viewer</p>
             <p>By 4 Cute Python Lovers</p>
+            <!-- <p><%=arr[1][4]%></p> -->
         </div>
             
         </div>
