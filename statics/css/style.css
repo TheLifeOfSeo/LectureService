@@ -236,7 +236,6 @@ tr td:nth-child(1) h5:hover {
 .sources table{
     margin: 0 auto;
     align-items: center;
-    padding: 0 40px;
 }
 
 .sources tfoot {
