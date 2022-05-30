@@ -86,10 +86,7 @@ p {
     width: 100%;
 }
 
-.data {
-    border-style: solid none none none;
-    border-top: #292b2d 1px;
-}
+
 
 .nav_bar {
     display: grid;
@@ -131,6 +128,9 @@ input {
 #data {
     background-color: #F2F2F2;
     color: black;
+    border-style: solid none none none;
+    border-top: #292b2d 1px;
+    padding-bottom: 60px;
 }
 
 #nav_bar input {
