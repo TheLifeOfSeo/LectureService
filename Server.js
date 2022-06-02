@@ -2,12 +2,29 @@ const express = require('express');
 const app = express();
 const fs = require("fs");
 const http = require("http")
+const path = require("path")
+const sass = require("node-sass")
 let server = http.createServer(app)
+let viewsRootPath = path.join(__dirname, "views")
+let staticRootPath = path.join(viewsRootPath, "statics")
+let cssRootPath = path.join(staticRootPath, "css")
+let sassRootPath = path.join(staticRootPath, "scss")
 
 app.set('view engine', 'ejs')
 app.set('views', './views')
 
 app.use(express.static('statics'));
+
+// app.use(sass.render({
+//     src: sassRootPath,
+//     dest: cssRootPath,
+//     outputStyle: "compact",
+//     debug: true,
+//     force: true,
+//     indentedSyntax: false,
+// }))
+
+
 
 app.get('/', function(req, res) { 
     let arr = new Array(); 

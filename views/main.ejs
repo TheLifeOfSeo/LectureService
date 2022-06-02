@@ -5,7 +5,7 @@
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="에브리타임 - 강의평 모아보기">
-    <meta property="og:description" content="데이터 통계 기반의 가장 정확한 수강신청 도우미">
+    <meta property="og:description" content="데이터 통계 기반의 가장 정확한 수강신청 길잡이">
     <meta property="og:image" content="/images/main.png">
     <title>에브리타임 - 강의평 모아보기</title>
     <link rel="stylesheet" href="/css/style.css">
@@ -16,9 +16,9 @@
 <body>
     <div class="bg">
         <div class="board">
-            <div class="header">
+            <div id="header" class="info">
                 <span>
-                    <h1 id="title">Lecture Stats</h1>
+                    <h1>Lecture Stats</h1>
                 </span>
                 <nav class="nav_bar" id="nav1">
                     <span><h4>과목별 조회</h4></span>
@@ -28,7 +28,7 @@
             </div>
             
             
-            <div id="data">
+            <div id="body">
                 <nav class="nav_bar" id="nav2">
                     <span><h5>전공</h5></span>
                     <span><h5>교양</h5></span>
@@ -38,8 +38,6 @@
                     <span><h5>단과대</h5></span>
                     <span><h5>전공</h5></span>
                     <span><h5>학년</h5></span>
-                    
-
                     <!-- <span><input></span> -->
                 </nav>
                 <!-- <nav class="nav_bar" id="nav3">
@@ -104,18 +102,15 @@
                                 </tr>
                             <% } %>
                         </tfoot>
-    
                     </table>
                 </div>
             </div>
-        <div class="footer">
-            <p>Everytime Lecture Stats Viewer</p>
-            <p>By 4 Cute Python Lovers</p>
-            <!-- <p><%=arr[1][4]%></p> -->
+            <div id="footer" class="info">
+                <p>Everytime Lecture Stats Viewer</p>
+                <p>By 오지혜</p>
+                <!-- <p><%=arr[1][4]%></p> -->
+            </div>
         </div>
-            
-        </div>
-        
     </div>
 </body>
 </html>
