@@ -1,14 +1,32 @@
 const express = require('express');
 const app = express();
 const fs = require("fs");
-const http = require("http")
-const path = require("path")
-const sass = require("node-sass")
+const http = require("http");
+const path = require("path");
+const sass = require("node-sass");
+const sql = require("sql");
+const mysql = require('mysql');
+
 let server = http.createServer(app)
 let viewsRootPath = path.join(__dirname, "views")
 let staticRootPath = path.join(viewsRootPath, "statics")
 let cssRootPath = path.join(staticRootPath, "css")
 let sassRootPath = path.join(staticRootPath, "scss")
+
+
+let connection = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'root',
+    password : '1234',
+    database : 'Service'
+});
+
+connection.connect();
+
+connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+    if (error) throw error;
+    console.log('The solution is: ', results[0].solution);
+});
 
 app.set('view engine', 'ejs')
 app.set('views', './views')
