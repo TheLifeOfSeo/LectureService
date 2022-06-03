@@ -17,11 +17,11 @@ let sassRootPath = path.join(staticRootPath, "scss")
 let connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : '1234',
+    password : '2580',
     database : 'Service'
 });
 
-connection.connect();
+// connection.connect();
 
 // connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
 //     if (error) throw error;
