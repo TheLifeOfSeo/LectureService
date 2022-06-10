@@ -23,3 +23,10 @@ for (var i = 0; i < arr.length; i++) {
     console.log(arr[i][1]);
 }
 
+function sortTable(n) {
+    
+    let table, rows, x, y;
+    table = document.getElementById(table);
+    
+}
+

@@ -3,30 +3,65 @@ const app = express();
 const fs = require("fs");
 const http = require("http");
 const path = require("path");
-const sass = require("node-sass");
-const sql = require("sql");
+const sass = require("sass");
 const mysql = require('mysql');
+const ejs = require('ejs');
+const fastcsv = require("fast-csv");
+const { response } = require('express');
+
 
 let server = http.createServer(app)
 let viewsRootPath = path.join(__dirname, "views")
-let staticRootPath = path.join(viewsRootPath, "statics")
+let staticRootPath = path.join(__dirname, "statics")
 let cssRootPath = path.join(staticRootPath, "css")
 let sassRootPath = path.join(staticRootPath, "scss")
+let dataRootPath = path.join(__dirname, "datas")
 
+// 강의구분,수강학년,과목코드,과목명,교수명,수업시간,학점,,강의평점,수강인원,수강정원
+
+let stream = fs.createReadStream(dataRootPath + '/lecturelist_select.csv')
+let csvData = [];
+let csvStream = fastcsv
+  .parse()
+  .on("data", function(data) {
+    csvData.push(data);
+  })
+  .on("end", function() {
+    // remove the first line: header
+    csvData.shift();
+    // connect to the MySQL database
+    // save csvData
+    connection.connect(error => {
+        if (error) {
+            console.error(error);
+        } else {
+            let query = "INSERT INTO lecture (전공구분, 학년, id, 과목명, 교수명, 수업시간, 학점, none, 강의평점, 수강인원, 수강정원) VALUES ? ;";
+            connection.query(query, [csvData], (error, response) => {
+                console.log(error);
+            });
+            
+            
+        }
+    });
+  });
+stream.pipe(csvStream);
+
+console.log(csvData);
+
+
+
+const style = sass.compile(sassRootPath + "/style.scss");
+fs.writeFileSync(cssRootPath + '/style.css', style.css, 'utf-8')
 
 let connection = mysql.createConnection({
-    host     : 'localhost',
+    host     : '127.0.0.1',
     user     : 'root',
     password : '2580',
     database : 'Service'
 });
 
-// connection.connect();
+// const STATS = connection.query('SELECT * FROM lecture');
 
-// connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-//     if (error) throw error;
-//     console.log('The solution is: ', results[0].solution);
-// });
 
 app.set('view engine', 'ejs')
 app.set('views', './views')
@@ -46,20 +81,41 @@ app.use(express.static('statics'));
 
 app.get('/', function(req, res) { 
     let arr = new Array(); 
-
-    arr[0] = ["오픈소스기초프로젝트", "강재구", "전공선택", 0.82, 81, "소프트웨어학과"];
-    arr[1] = ["자료구조", "이의종", "전공필수", 0.5, 23, "소프트웨어학과"];
-    arr[2] = ["인간과 기계문명", "김연순", "교양선택", 1, 62];
-    arr[3] = ["오픈소스기초프로젝트", "강재구", "전공선택", 0.82, 81, "소프트웨어학과"];
-    arr[4] = ["자료구조", "이의종", "전공필수", 0.5, 23, "소프트웨어학과"];
-    arr[5] = ["인간과 기계문명", "김연순", "교양선택", 1, 62];
-    arr[6] = ["오픈소스기초프로젝트", "강재구", "전공선택", 0.82, 81, "소프트웨어학과"];
-    arr[7] = ["자료구조", "이의종", "전공필수", 0.5, 23, "소프트웨어학과"];
-    arr[8] = ["인간과 기계문명", "김연순", "교양선택", 1, 62];
-    arr[9] = ["오픈소스기초프로젝트", "강재구", "전공선택", 0.82, 81, "소프트웨어학과"];
-
-    res.render("main.ejs", { arr : arr })
+    
+    connection.query('SELECT * FROM lecture', function (error, results) {
+        console.log(results)
+        res.render("main.ejs", { arr : results })
+    })
+    
 })
+
+app.get('/stats/:id', function(req, res) { 
+    let target = new Array(); 
+    connection.query('SELECT * FROM lecture WHERE id = ?', req.params.id, function (error, results) {
+        console.log(results)
+        res.render("stat.ejs", { target : results })
+        return
+    })
+    
+})
+
+//http://localhost:8080/stats/5118001-02
+//https://github.com/TheLifeOfSeo/LectureService
+
+
+
+// app.get("/product", (req, res) => {
+//     let target_product = PRODUCTS.getProduct(req.query["code"])
+
+//     if (!target_product) {
+//         res.status(400).send("잘못된 접근입니다.")
+//         return
+//     }
+
+//     res.render("product-detail", {
+//         product: target_product
+//     })
+// })
 
 server.listen(8080, ()=> {
 

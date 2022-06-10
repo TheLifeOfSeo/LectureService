@@ -1,0 +1,58 @@
+<%- include ('header') %>
+
+<div id="body">
+    <nav class="nav_bar" id="nav2">
+        <span id="nav_btn1"><h5>뒤로가기</h5></span>
+        <span id="nav_btn2"><h5></h5></span>
+        <span id="nav_btn3"><h5></h5></span>
+        <span id="nav_btn4"><h5></h5></span>
+        <!-- if (전공 == 참)일경우 document.write(밑에 3줄) -->
+        <span><h5></h5></span>
+        <span><h5></h5></span>
+        <span><h5></h5></span>
+        <!-- <span><input></span> -->
+    </nav>
+    <!-- <nav class="nav_bar" id="nav3">
+        <span><h5>평가 높은 순</h5></span>
+        <span><h5>평가 낮은 순</h5></span>
+        <span><h5>평가 많은 순</h5></span>
+        <span>
+            <input>
+            <h5>검색</h5>
+        </span>
+    </nav> -->
+    <div class="sources">
+        <div class="container">
+            <div class="1">
+                <!-- // 강의구분,수강학년,과목코드,과목명,교수명,수업시간,학점,,강의평점,수강인원,수강정원 -->
+                <!-- 전공필수,1학년,5118001-02,이산수학,이병훈,"금05 ,06 ,07 [S4-1-103(21-103)]",3,,,65,50 -->
+                <h2><%= target.과목명 %></h2>
+                <h3><%= target.교수명 %></h3>
+                <h5><%= target.전공구분 %> - <%= target.학년 %></h5>
+            </div>
+            <div class="box-bar">
+                <div class="detail-box">
+                    <h5>강의코드</h5>
+                    <p><%= target.id %></p>
+                </div>
+                <div class="detail-box">
+                    <h5>학점</h5>
+                    <p><%= target.학점 %></p>
+                </div>
+                <div class="detail-box">
+                    <h5>강의시간</h5>
+                    <p><%= target.학년 %></p>
+                </div>
+                <div class="detail-box">
+                    <h5>강의장소</h5>
+                    <p><%= target.학년 %></p>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    
+</div>
+
+<%- include ('footer') %>

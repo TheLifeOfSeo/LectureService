@@ -45,7 +45,7 @@ body {
 }
 
 .info {
-    font-family: "TSTAR";
+    font-family: "TSTAR", 'paybooc-Medium';
     color: #e2efff;
 }
 
@@ -82,7 +82,7 @@ p {
         display: inline-block;
         word-break: keep-all;
         &:hover {
-            color: &$hover1;
+            color: $hover1;
             cursor: pointer;
         }
     }
@@ -140,6 +140,7 @@ p {
         margin: 0 auto;
         align-items: center;
         padding: 0 5%;
+        max-width: 960px;
         tbody {
             td:nth-child(1) {
                 width: 70%;
@@ -188,6 +189,23 @@ p {
         }
     }
 }
+
+.box-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 5%;
+    
+    .detail-box {
+        padding: 0 5%;
+        h4 {
+            font-size: 1.75vmax;
+        }
+        p {
+            font-size: 1.25vmax;
+        }
+    }
+}
+
 
 /* 
 #nav2 span {
