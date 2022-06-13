@@ -35,7 +35,7 @@ let csvStream = fastcsv
         if (error) {
             console.error(error);
         } else {
-            let query = "INSERT INTO lecture (강의구분,수강학년,과목코드,과목명,교수명,수업시간,학점,단과대학,학과,수강인원,수강정원,강의평점) VALUES ? ;";
+            let query = "INSERT INTO lecture (전공구분,학년,id,과목명,교수명,수업시간,학점,단과대학,학과,강의평점,수강인원,수강정원) VALUES ? ;";
             connection.query(query, [csvData], (error, response) => {
                 console.log(error);
             });
