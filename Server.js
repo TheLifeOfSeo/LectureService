@@ -24,12 +24,10 @@ let csvStream = fastcsv
     .parse()
     .on("data", function(data) {
         csvData.push(data);
-        console.log(data);
     })
     .on("end", function() {
         // remove the first line: header
         csvData.shift();
-
         // connect to the MySQL database
         // save csvData
         connection.connect((error) => {
@@ -37,15 +35,14 @@ let csvStream = fastcsv
                 console.error(error);
             } else {
                 let query =
-                    "INSERT INTO lecture (강의구분,수강학년,과목코드,과목명,교수명,수업시간,학점,단과대학,학과,수강인원,수강정원,강의평점) VALUES ? ;";
+                    "INSERT INTO lecture (전공구분,학년,id,과목명,교수명,수업시간,학점,단과대학,학과,수강인원,수강정원,강의평점) VALUES ? ;";
                 connection.query(query, [csvData], (error, response) => {
-                    console.log(response);
                     console.log(error);
                 });
             }
         });
-        stream.pipe(csvStream);
     });
+stream.pipe(csvStream);
 //1. sql 모듈 통해서 MySQL에 저장되어있는 뽑아올 수 있음
 //2. 셀렉트박스로 학과 선택시 -> MySQL에서 특정 학과 값 가진 Row만 출력
 //3. 강의 평가수, 강의 점수 따라
