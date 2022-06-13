@@ -24,10 +24,12 @@ let csvStream = fastcsv
     .parse()
     .on("data", function(data) {
         csvData.push(data);
+        console.log(data);
     })
     .on("end", function() {
         // remove the first line: header
         csvData.shift();
+
         // connect to the MySQL database
         // save csvData
         connection.connect((error) => {
