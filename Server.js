@@ -9,7 +9,6 @@ const ejs = require('ejs');
 const fastcsv = require("fast-csv");
 const { response } = require('express');
 
-
 let server = http.createServer(app)
 let viewsRootPath = path.join(__dirname, "views")
 let staticRootPath = path.join(__dirname, "statics")
