@@ -8,7 +8,18 @@ const sass = require("sass");
 const mysql = require("mysql");
 const ejs = require("ejs");
 const fastcsv = require("fast-csv");
+<<<<<<< HEAD
 const { response } = require("express");
+=======
+const { response } = require('express');
+
+let server = http.createServer(app)
+let viewsRootPath = path.join(__dirname, "views")
+let staticRootPath = path.join(__dirname, "statics")
+let cssRootPath = path.join(staticRootPath, "css")
+let sassRootPath = path.join(staticRootPath, "scss")
+let dataRootPath = path.join(__dirname, "datas")
+>>>>>>> f1d9d1520333de7d1fc7b1905273c90c966ea7eb
 
 let server = http.createServer(app);
 let viewsRootPath = path.join(__dirname, "views");
