@@ -1,3 +1,4 @@
+const PORT = 8000;
 const express = require("express");
 const app = express();
 const fs = require("fs");
@@ -16,8 +17,7 @@ let cssRootPath = path.join(staticRootPath, "css");
 let sassRootPath = path.join(staticRootPath, "scss");
 let dataRootPath = path.join(__dirname, "datas");
 
-// 강의구분,수강학년,과목코드,과목명,교수명,수업시간,학점,,강의평점,수강인원,수강정원
-
+//강의구분,수강학년,과목코드,과목명,교수명,수업시간,학점,단과대학,학과,수강인원,수강정원,강의평점
 let stream = fs.createReadStream(dataRootPath + "/lecturelist_select.csv");
 let csvData = [];
 let csvStream = fastcsv
@@ -35,17 +35,15 @@ let csvStream = fastcsv
                 console.error(error);
             } else {
                 let query =
-                    "INSERT INTO lecture (전공구분, 학년, id, 과목명, 교수명, 수업시간, 학점, none, 강의평점, 수강인원, 수강정원) VALUES ? ;";
+                    "INSERT INTO lecture (강의구분,수강학년,과목코드,과목명,교수명,수업시간,학점,단과대학,학과,수강인원,수강정원,강의평점) VALUES ? ;";
                 connection.query(query, [csvData], (error, response) => {
+                    console.log(response);
                     console.log(error);
                 });
             }
         });
+        stream.pipe(csvStream);
     });
-stream.pipe(csvStream);
-
-console.log(csvData);
-
 //1. sql 모듈 통해서 MySQL에 저장되어있는 뽑아올 수 있음
 //2. 셀렉트박스로 학과 선택시 -> MySQL에서 특정 학과 값 가진 Row만 출력
 //3. 강의 평가수, 강의 점수 따라
@@ -242,20 +240,6 @@ app.get("/stats/:id", function(req, res) {
     );
 });
 
-//http://localhost:8080/stats/5118001-02
-//https://github.com/TheLifeOfSeo/LectureService
-
-// app.get("/product", (req, res) => {
-//     let target_product = PRODUCTS.getProduct(req.query["code"])
-
-//     if (!target_product) {
-//         res.status(400).send("잘못된 접근입니다.")
-//         return
-//     }
-
-//     res.render("product-detail", {
-//         product: target_product
-//     })
-// })
-
-server.listen(8080, () => {});
+server.listen(PORT, () => {
+    console.log(`server listening on port : ${PORT}`);
+});
