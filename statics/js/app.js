@@ -28,7 +28,7 @@ function categoryChange(selectedMajor) {
         "화학공학과",
         "환경공학과",
     ];
-    major["농명생명환경대학"] = [
+    major["농업생명환경대학"] = [
         "농업경제학과",
         "목재종이과학과",
         "바이오시스템공학과",
