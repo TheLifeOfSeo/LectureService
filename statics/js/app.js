@@ -1,6 +1,16 @@
 let arr = new Array();
-
+console.log("loaded!")
 let major = ["학과"];
+let lecValue = $("#lec_title");
+
+lecValue.on("click", () => {
+    let lec_Value = lecValue.val();
+    $.ajax({
+        url: "/stats",
+        type: "GET",
+        data: {lecCode : lec_Value}
+    })
+})
 
 function categoryChange(selectedMajor) {
     let major = ["학과"];
@@ -129,7 +139,7 @@ function categoryChange(selectedMajor) {
         "컴퓨터공학과",
     ];
 
-    let target = document.getElementById("major");
+    let target = document.getElementById("major-detail");
 
     let d = major[selectedMajor];
 

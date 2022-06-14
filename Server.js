@@ -16,6 +16,13 @@ let cssRootPath = path.join(staticRootPath, "css");
 let sassRootPath = path.join(staticRootPath, "scss");
 let dataRootPath = path.join(__dirname, "datas");
 
+let majorKey;
+let majorValue;
+let majorDetailKey;
+let majorDetailValue;
+let ageKey;
+let ageValue;
+
 //강의구분,수강학년,과목코드,과목명,교수명,수업시간,학점,단과대학,학과,수강인원,수강정원,강의평점
 let stream = fs.createReadStream(dataRootPath + "/lecturelist_select.csv");
 let csvData = [];
@@ -39,6 +46,11 @@ let csvStream = fastcsv
             }
         });
     });
+
+// 전공: 강의구분,수강학년,과목코드,과목명,교수명,수업시간,학점,단과대학,학과,수강인원,수강정원,강의평점
+// 교양: 강의구분,수강학년,과목코드,과목명,교수명,수업시간,학점,,,수강인원,수강정원,강의평점
+
+
 stream.pipe(csvStream);
 
 //1. sql 모듈 통해서 MySQL에 저장되어있는 뽑아올 수 있음
@@ -49,10 +61,10 @@ const style = sass.compile(sassRootPath + "/style.scss");
 fs.writeFileSync(cssRootPath + "/style.css", style.css, "utf-8");
 
 let connection = mysql.createConnection({
-    host: "localhost",
+    host: "127.0.0.1",
     user: "root",
-    password: "kmckshkmc",
-    database: "lectureservice",
+    password: "2580",
+    database: "Service",
 });
 
 // const STATS = connection.query('SELECT * FROM lecture');
@@ -77,25 +89,19 @@ app.get("/", function(req, res) {
     });
 });
 
-app.get("/");
 
-app.get("/stats/:id", function(req, res) {
-    let target = new Array();
+// /stats?major=농업생명&align=true
+// => req.query = {major : "농업생명"}
+app.get("/majorstats", (req, res) => {
+    //농업생명
+    majorKey = req.query.majorKey;
+    majorValue = req.query.majorValue;
+    ageKey = req.query.ageKey;
+    ageValue = req.query.ageValue;
+
+    let query = `select * from lecture where ${majorKey}= "${majorValue}"`;
     connection.query(
-        "SELECT * FROM lecture WHERE id = ?",
-        req.params.id,
-        function(error, results) {
-            res.render("stat.ejs", { target: results[0] });
-            return;
-        }
-    );
-});
-
-app.get("/stats", (req, res) => {
-    let major = req.query.major;
-
-    connection.query(
-        `select * from lecture where 단과대학="${major}"`,
+        query,
         (err, result) => {
             if (err) {
                 console.error(err);
@@ -106,6 +112,22 @@ app.get("/stats", (req, res) => {
         }
     );
 });
+
+app.get("/stats", function(req, res) {
+    let lecCode= req.query.lecCode;
+    console.log(lecCode);
+    connection.query(`SELECT * FROM lecture WHERE id= "${lecCode}"`, function(error, results) {
+        if(error){
+            res.render("stat.ejs", {target : []})
+            return
+        }
+
+        if (results){
+            return res.render("stat.ejs", {target : results[0]})
+        }
+    });
+});
+
 //http://localhost:8080/stats/5118001-02
 //https://github.com/TheLifeOfSeo/LectureService
 

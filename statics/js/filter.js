@@ -1,34 +1,35 @@
-let majorSelection = $(".major-selection");
+let majorSelection = $("#major");
+let majorDetailSelection = $("#major-detail");
+let ageSelection = $("#age");
+
 
 majorSelection.on("change", () => {
     let selectedMajor = majorSelection.val();
+    let selectedAge = ageSelection.val();
     $("#table tfoot").empty();
 
     categoryChange(selectedMajor);
 
     $.ajax({
-        url: "/stats",
+        url: "/majorstats",
         type: "GET",
         data: {
-            major: selectedMajor,
+            majorKey: "단과대학",
+            majorValue: selectedMajor,
         },
     }).done((res) => {
         res.forEach((_row) => {
             let row = $(`
                 <tr>
                 <td id="lec_name" colspan="2">
-                    <h5>
+                    <h5><a href="/stats?lecCode=${_row.id}" id="lec_title">
                         ${_row.과목명}
+                    </a>
                     </h5>
                 </td>
                 <td id="rate" rowspan="2">
                     <h5>
-                        ${_row.강의평점 * 100 + "%"}
-                    </h5>
-                </td>
-                <td id="rate_count" rowspan="2">
-                    <h5>
-                        ${_row.강의평점}
+                        ${(_row.강의평점 * 20).toFixed(1) + "%"}
                     </h5>
                 </td>
             </tr>
@@ -36,18 +37,137 @@ majorSelection.on("change", () => {
                 <td>
                     <h5 id="teacher">
                         ${
-                          _row.교수명.length > 1
+                            _row.교수명.length > 1
                             ? _row.교수명 +
-                              "외" +
-                              (_row.교수명.length - 1) +
-                              "명"
+                            " 외 " +
+                            (_row.교수명.length - 1) +
+                            "명"
                             : _row.교수명
                         }
                     </h5>
                 </td>
                 <td>
                     <h5 id="division">
-                       ${_row.전공구분}
+                        ${_row.학과 + " - "}
+                        ${_row.전공구분}
+                    </h5>
+                </td>
+            </tr>
+        `);
+
+            $("#table tfoot").append(row);
+        });
+    });
+});
+
+
+
+
+
+majorDetailSelection.on("change", () => {
+    let selectedMajorDetail = majorDetailSelection.val();
+    let selectedAge = ageSelection.val();
+    $("#table tfoot").empty();
+    $.ajax({
+        url: "/majorstats",
+        type: "GET",
+        data: {
+            majorKey: "학과",
+            majorValue: selectedMajorDetail,
+        },
+    }).done((res) => {
+        res.forEach((_row) => {
+            let row = $(`
+                <tr>
+                <td id="lec_name" colspan="2">
+                    <h5><a href="/stats?lecCode=${_row.id}" id="lec_title">
+                        ${_row.과목명}
+                    </a>
+                    </h5>
+                </td>
+                <td id="rate" rowspan="2">
+                    <h5>
+                        ${(_row.강의평점 * 20).toFixed(1) + "%"}
+                    </h5>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h5 id="teacher">
+                        ${
+                            _row.교수명.length > 1
+                            ? _row.교수명 +
+                            " 외 " +
+                            (_row.교수명.length - 1) +
+                            "명"
+                            : _row.교수명
+                        }
+                    </h5>
+                </td>
+                <td>
+                    <h5 id="division">
+                        ${_row.학과 + " - "}
+                        ${_row.전공구분}
+                    </h5>
+                </td>
+            </tr>
+        `);
+    
+                $("#table tfoot").append(row);
+            });
+        });
+    });
+
+
+
+ageSelection.on("change", () => {
+    let selectedMajor = majorSelection.val();
+    let selectedMajorDetail = majorDetailSelection.val();
+    let selectedAge = ageSelection.val();
+    $("#table tfoot").empty();
+
+    categoryChange(selectedAge);
+
+    $.ajax({
+        url: "/statsAge",
+        type: "GET",
+        data: {
+            majorKey: "학년",
+            majorValue: selectedAge,
+        },
+    }).done((res) => {
+        res.forEach((_row) => {
+            let row = $(`
+            <tr>
+                <td id="lec_name" colspan="2">
+                    <h5><a href="/stats?lecCode=${_row.id}" id="lec_title">
+                    ${_row.과목명}
+                    </a>
+                    </h5>
+                </td>
+                <td id="rate" rowspan="2">
+                    <h5>
+                        ${(_row.강의평점 * 20).toFixed(1) + "%"}
+                    </h5>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h5 id="teacher">
+                        ${
+                            _row.교수명.length > 1
+                            ? _row.교수명 +
+                            " 외 " +
+                            (_row.교수명.length - 1) +
+                            "명"
+                            : _row.교수명
+                        }
+                    </h5>
+                </td>
+                <td>
+                    <h5 id="division">
+                        ${_row.학과 + " - "}
+                        ${_row.전공구분}
                     </h5>
                 </td>
             </tr>

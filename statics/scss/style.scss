@@ -5,6 +5,7 @@ $color4: #e2efff;
 $color5: #9a9a9a;
 $hover1: #a4a594;
 $hover2: #F26A1B;
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
 @font-face {
     font-family: 'TSTAR';
     src: url('TSTAR-PRO-Bold.otf') format('woff'), url('TSTAR-PRO-Bold.otf') format('woff2');
@@ -99,6 +100,20 @@ p {
     width: 50%;
 }
 
+a {
+    text-decoration: none;
+    &:link {
+        color : black;
+    }
+    &:visited {
+        color : black;
+    }
+    &:hover {
+        color : $hover2;
+    }
+}
+
+
 #nav1 {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 5%;
@@ -114,45 +129,47 @@ p {
 }
 
 #nav3 {
-    grid-template-columns: repeat(3, 1fr);
-    background-color: $color2;
+    display: flex;
+    background-color: $color3;
+    justify-content: flex-end;
+    select {
+        /* 생략 */
+        min-width: 120px;
+        font-size: 0.75rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #444;
+        background-color: #fff;
+        padding: 0.6em 1.4em 0.5em 0.8em;
+        margin: 0 6px;
+        border: 1px solid #aaa;
+        border-radius: 0.5em;
+        box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+        text-align-last: center;
+        text-align: center;
+        -ms-text-align-last: center;
+        -moz-text-align-last: center;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        &:hover {
+            border-color: #888;
+        }
+        &:focus {
+            border-color: #aaa;
+            box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+            color: #222;
+            outline: none;
+        }
+        &:disabled {
+            opacity: 0.5;
+        }
+    }
 }
 
-select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-}
 
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
-select {
-    /* 생략 */
-    font-size: 0.75rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #444;
-    background-color: #fff;
-    padding: 0.6em 1.4em 0.5em 0.8em;
-    border: 1px solid #aaa;
-    border-radius: 0.5em;
-    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
-    text-align-last: center;
-    text-align: center;
-    -ms-text-align-last: center;
-    -moz-text-align-last: center;
-    &:hover {
-        border-color: #888;
-    }
-    &:focus {
-        border-color: #aaa;
-        box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
-        color: #222;
-        outline: none;
-    }
-    &:disabled {
-        opacity: 0.5;
-    }
-}
+
+
 
 #table {
     tfoot {
@@ -178,24 +195,22 @@ select {
 
 .sources {
     padding: 40px 0;
+    min-height: 1vh;
+    max-width: 960px;
+    margin: 0 auto;
     table {
         margin: 0 auto;
         align-items: center;
-        max-width: 960px;
+        width: 100%;
         tbody {
             td:nth-child(1) {
-                width: 60%;
+                width: 70%;
                 text-align: center;
                 min-width: 186px;
             }
             td:nth-child(2) {
                 text-align: center;
-                width: 20%;
-                min-width: 60px;
-            }
-            td:nth-child(3) {
-                width: 20%;
-                text-align: center;
+                width: 30%;
                 min-width: 60px;
             }
         }

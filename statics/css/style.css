@@ -90,6 +90,19 @@ p {
   width: 50%;
 }
 
+a {
+  text-decoration: none;
+}
+a:link {
+  color: black;
+}
+a:visited {
+  color: black;
+}
+a:hover {
+  color: #F26A1B;
+}
+
 #nav1 {
   grid-template-columns: repeat(3, 1fr);
   column-gap: 5%;
@@ -105,24 +118,20 @@ p {
 }
 
 #nav3 {
-  grid-template-columns: repeat(3, 1fr);
-  background-color: #116F92;
+  display: flex;
+  background-color: #F2F2F2;
+  justify-content: flex-end;
 }
-
-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-select {
+#nav3 select {
   /* 생략 */
+  min-width: 120px;
   font-size: 0.75rem;
   font-weight: 400;
   line-height: 1.5;
   color: #444;
   background-color: #fff;
   padding: 0.6em 1.4em 0.5em 0.8em;
+  margin: 0 6px;
   border: 1px solid #aaa;
   border-radius: 0.5em;
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
@@ -130,20 +139,26 @@ select {
   text-align: center;
   -ms-text-align-last: center;
   -moz-text-align-last: center;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
-select:hover {
+#nav3 select:hover {
   border-color: #888;
 }
-select:focus {
+#nav3 select:focus {
   border-color: #aaa;
   box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
   color: #222;
   outline: none;
 }
-select:disabled {
+#nav3 select:disabled {
   opacity: 0.5;
 }
 
+#table tfoot {
+  animation: fade-in 2s forwards;
+}
 /* #nav2 span{
     background-color: #F87F0D;
     border-radius: 12px;
@@ -159,25 +174,23 @@ select:disabled {
 
 .sources {
   padding: 40px 0;
+  min-height: 1vh;
+  max-width: 960px;
+  margin: 0 auto;
 }
 .sources table {
   margin: 0 auto;
   align-items: center;
-  max-width: 960px;
+  width: 100%;
 }
 .sources table tbody td:nth-child(1) {
-  width: 60%;
+  width: 70%;
   text-align: center;
   min-width: 186px;
 }
 .sources table tbody td:nth-child(2) {
   text-align: center;
-  width: 20%;
-  min-width: 60px;
-}
-.sources table tbody td:nth-child(3) {
-  width: 20%;
-  text-align: center;
+  width: 30%;
   min-width: 60px;
 }
 .sources table tfoot {
@@ -232,4 +245,13 @@ select:disabled {
 #footer {
   /* color: #f2f8ff; */
   padding: 2% 0;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
