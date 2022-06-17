@@ -3,6 +3,9 @@ console.log("loaded!")
 let major = ["학과"];
 let lecValue = $("#lec_title");
 
+
+
+
 lecValue.on("click", () => {
     let lec_Value = lecValue.val();
     $.ajax({

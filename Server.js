@@ -67,21 +67,11 @@ let connection = mysql.createConnection({
     database: "Service",
 });
 
-// const STATS = connection.query('SELECT * FROM lecture');
 
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
 app.use(express.static("statics"));
-
-// app.use(sass.render({
-//     src: sassRootPath,
-//     dest: cssRootPath,
-//     outputStyle: "compact",
-//     debug: true,
-//     force: true,
-//     indentedSyntax: false,
-// }))
 
 app.get("/", function(req, res) {
     connection.query("SELECT * FROM lecture", function(error, results) {
@@ -89,17 +79,89 @@ app.get("/", function(req, res) {
     });
 });
 
+app.get("/major", function(req, res) {
+    connection.query("SELECT * FROM lecture WHERE 전공구분 IN ('전공필수','전공선택')", function(error, results) {
+        res.render("1-major.ejs", { arr: results });
+    });
+});
+
+app.get("/general", function(req, res) {
+    connection.query("SELECT * FROM lecture WHERE 전공구분 = '교양선택'", function(error, results) {
+        res.render("2-general", { arr: results });
+    });
+});
+app.get("/edu", function(req, res) {
+    connection.query("SELECT * FROM lecture WHERE 전공구분 = '교직필수'", function(error, results) {
+        res.render("3-edu.ejs", { arr: results });
+    });
+});
+
+app.get("/etc", function(req, res) {
+    connection.query("SELECT * FROM lecture WHERE 전공구분 = '일반선택'", function(error, results) {
+        res.render("4-etc.ejs", { arr: results });
+    });
+});
+
+app.get("/sortdefault", (req, res) => {
+    valueKey = req.query.valueKey;
+    let query = `select * from lecture where 전공구분= "${valueKey}"`;
+    connection.query(
+        query,
+        (err, result) => {
+            if (err) {
+                console.error(err);
+            }
+
+            res.json(result);
+            return;
+        }
+    );
+});
+
+app.get("/sortasc", (req, res) => {
+    valueKey = req.query.valueKey;
+    sortKey = req.query.sortKey;
+    let query = `select * from lecture where 전공구분= "${valueKey}" AND 강의평점 != "0" ORDER BY 강의평점 ASC`;
+    connection.query(
+        query,
+        (err, result) => {
+            if (err) {
+                console.error(err);
+            }
+
+            res.json(result);
+            return;
+        }
+    );
+});
+
+app.get("/sortdec", (req, res) => {
+    valueKey = req.query.valueKey;
+    sortKey = req.query.sortKey;
+    let query = `select * from lecture where 전공구분= "${valueKey}" ORDER BY 강의평점 DESC`;
+    connection.query(
+        query,
+        (err, result) => {
+            if (err) {
+                console.error(err);
+            }
+
+            res.json(result);
+            return;
+        }
+    );
+});
+
 
 // /stats?major=농업생명&align=true
 // => req.query = {major : "농업생명"}
 app.get("/majorstats", (req, res) => {
-    //농업생명
     majorKey = req.query.majorKey;
     majorValue = req.query.majorValue;
-    ageKey = req.query.ageKey;
     ageValue = req.query.ageValue;
+    checkValue = req.query.disableZero;
 
-    let query = `select * from lecture where ${majorKey}= "${majorValue}"`;
+    let query = `select * from lecture where ${majorKey}= "${majorValue}" AND ${checkValue ? "강의평점 != 0" : "강의평점 >= 0"}`;
     connection.query(
         query,
         (err, result) => {

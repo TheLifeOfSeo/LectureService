@@ -4,173 +4,9 @@ let ageSelection = $("#age");
 let zeroSelection = $("#zeroCheck");
 let selectedMajor = majorSelection.val();
 let selectedMajorDetail = majorDetailSelection.val();
-let selectedMajorKey;
-let searchData;
+let selectedMajorKey
 
-let defaultButton = $("#button-default");
-let sortingSelected = defaultButton.val();
-let incButton = $("#button-inc");
-let incButtonValue = incButton.val();
-let decButton = $("#button-dec");
-let decButtonValue = decButton.val();
-
-
-
-
-defaultButton.on("click", () => {
-    console.log("안녕");
-    $("#table tfoot").empty();
-    $.ajax({
-        url:"/sortdefault",
-        type: "GET",
-        data: {
-            valueKey: sortingSelected
-        },
-    }).done((res) => {
-        res.forEach((_row) => {
-            let row = $(`
-                <tr>
-                <td id="lec_name" colspan="2">
-                    <h5><a href="/stats?lecCode=${_row.id}" id="lec_title">
-                        ${_row.과목명}
-                    </a>
-                    </h5>
-                </td>
-                <td id="rate" rowspan="2">
-                    <h5>
-                        ${(_row.강의평점 * 20).toFixed(1) + "%"}
-                    </h5>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h5 id="teacher">
-                        ${
-                            _row.교수명.length > 1
-                            ? _row.교수명 +
-                            " 외 " +
-                            (_row.교수명.length - 1) +
-                            "명"
-                            : _row.교수명
-                        }
-                    </h5>
-                </td>
-                <td>
-                    <h5 id="division">
-                        ${_row.전공구분}
-                    </h5>
-                </td>
-            </tr>
-        `);
-
-            $("#table tfoot").append(row);
-        });
-});
-});
-
-incButton.on("click", () => {
-
-    $("#table tfoot").empty();
-    $.ajax({
-        url:"/sortasc",
-        type: "GET",
-        data: {
-            valueKey: sortingSelected,
-            sortKey: incButtonValue,
-        },
-    }).done((res) => {
-        res.forEach((_row) => {
-            let row = $(`
-                <tr>
-                <td id="lec_name" colspan="2">
-                    <h5><a href="/stats?lecCode=${_row.id}" id="lec_title">
-                        ${_row.과목명}
-                    </a>
-                    </h5>
-                </td>
-                <td id="rate" rowspan="2">
-                    <h5>
-                        ${(_row.강의평점 * 20).toFixed(1) + "%"}
-                    </h5>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h5 id="teacher">
-                        ${
-                            _row.교수명.length > 1
-                            ? _row.교수명 +
-                            " 외 " +
-                            (_row.교수명.length - 1) +
-                            "명"
-                            : _row.교수명
-                        }
-                    </h5>
-                </td>
-                <td>
-                    <h5 id="division">
-                        ${_row.전공구분}
-                    </h5>
-                </td>
-            </tr>
-        `);
-
-            $("#table tfoot").append(row);
-        });
-})
-});
-
-decButton.on("click", () => {
-
-    $("#table tfoot").empty();
-    $.ajax({
-        url:"/sortdec",
-        type: "GET",
-        data: {
-            valueKey: sortingSelected,
-            sortKey: decButtonValue,
-        }
-    }).done((res) => {
-        res.forEach((_row) => {
-            let row = $(`
-                <tr>
-                <td id="lec_name" colspan="2">
-                    <h5><a href="/stats?lecCode=${_row.id}" id="lec_title">
-                        ${_row.과목명}
-                    </a>
-                    </h5>
-                </td>
-                <td id="rate" rowspan="2">
-                    <h5>
-                        ${(_row.강의평점 * 20).toFixed(1) + "%"}
-                    </h5>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h5 id="teacher">
-                        ${
-                            _row.교수명.length > 1
-                            ? _row.교수명 +
-                            " 외 " +
-                            (_row.교수명.length - 1) +
-                            "명"
-                            : _row.교수명
-                        }
-                    </h5>
-                </td>
-                <td>
-                    <h5 id="division">
-                        ${_row.전공구분}
-                    </h5>
-                </td>
-            </tr>
-        `);
-
-            $("#table tfoot").append(row);
-        });
-})
-});
+let searchData = $("#button-search");
 
 
 
@@ -412,54 +248,54 @@ zeroSelection.on("change", (e) => {
 
 
 
-// searchData.on("click", () => {
-//     $("#table tfoot").empty();
-//     $.ajax({
-//         url: "/majorstats",
-//         type: "GET",
-//         data: {
-//             majorKey: selectedMajorKey,
-//             majorValue: selectedMajor,
-//         },
-//     }).done((res) => {
-//         res.forEach((_row) => {
-//             let row = $(`
-//                 <tr>
-//                 <td id="lec_name" colspan="2">
-//                     <h5><a href="/stats?lecCode=${_row.id}" id="lec_title">
-//                         ${_row.과목명}
-//                     </a>
-//                     </h5>
-//                 </td>
-//                 <td id="rate" rowspan="2">
-//                     <h5>
-//                         ${(_row.강의평점 * 20).toFixed(1) + "%"}
-//                     </h5>
-//                 </td>
-//             </tr>
-//             <tr>
-//                 <td>
-//                     <h5 id="teacher">
-//                         ${
-//                             _row.교수명.length > 1
-//                             ? _row.교수명 +
-//                             " 외 " +
-//                             (_row.교수명.length - 1) +
-//                             "명"
-//                             : _row.교수명
-//                         }
-//                     </h5>
-//                 </td>
-//                 <td>
-//                     <h5 id="division">
-//                         ${_row.학과 + " - "}
-//                         ${_row.전공구분}
-//                     </h5>
-//                 </td>
-//             </tr>
-//         `);
+searchData.on("click", () => {
+    $("#table tfoot").empty();
+    $.ajax({
+        url: "/majorstats",
+        type: "GET",
+        data: {
+            majorKey: selectedMajorKey,
+            majorValue: selectedMajor,
+        },
+    }).done((res) => {
+        res.forEach((_row) => {
+            let row = $(`
+                <tr>
+                <td id="lec_name" colspan="2">
+                    <h5><a href="/stats?lecCode=${_row.id}" id="lec_title">
+                        ${_row.과목명}
+                    </a>
+                    </h5>
+                </td>
+                <td id="rate" rowspan="2">
+                    <h5>
+                        ${(_row.강의평점 * 20).toFixed(1) + "%"}
+                    </h5>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h5 id="teacher">
+                        ${
+                            _row.교수명.length > 1
+                            ? _row.교수명 +
+                            " 외 " +
+                            (_row.교수명.length - 1) +
+                            "명"
+                            : _row.교수명
+                        }
+                    </h5>
+                </td>
+                <td>
+                    <h5 id="division">
+                        ${_row.학과 + " - "}
+                        ${_row.전공구분}
+                    </h5>
+                </td>
+            </tr>
+        `);
 
-//             $("#table tfoot").append(row);
-//         });
-//     });
-// });
+            $("#table tfoot").append(row);
+        });
+    });
+});

@@ -1,0 +1,85 @@
+<%- include ('header') %>
+
+    <div id="body">
+        <div class="sources">
+            <nav class="nav_bar" id="nav3">
+                <span>
+                    <button class="button-search" id="button-default" value="교직필수">기본</button>
+                </span>
+                <span>
+                    <button class="button-search" id="button-dec" value="ASC">높은 순</button>
+                </span>
+                <span>
+                    <button class="button-search" id="button-inc" value="DESC">낮은 순</button>
+                </span>
+            </nav>
+            <table id="table">
+                <tbody>
+                    <tr id="line">
+                        <td colspan="2">
+                            <h4>
+                                강의
+                            </h4>
+                        </td>
+                        <td>
+                            <h4>
+                                선호도
+                            </h4>
+                        </td>
+                        <!-- <td>
+                            <h4>
+                                평가
+                            </h4>
+                        </td> -->
+                    </tr>
+                </tbody>
+                <!-- 10개마다 페이지 넘어가게 만들기 -->
+                <tfoot>
+                    <% arr.forEach(function (arr, index) { %>
+
+                        <% arr.교수명 = arr.교수명.split(', ') %>
+                            <tr>
+                                <td id="lec_name" colspan="2">
+                                    <h5><a href="/stats?lecCode=<%= arr.id %>" id="lec_title">
+                                        <%=arr.과목명%>
+                                    </a>
+                                    </h5>
+                                </td>
+                                <td id="rate" rowspan="2">
+                                    <h5>    
+                                        <%= (arr.강의평점 * 20).toFixed(1) + "%"%>
+                                    </h5>
+                                </td>
+                                <!-- <td id="rate_count" rowspan="2">
+                                    <h5>
+                                        <%= arr.강의평점%>
+                                    </h5>
+                                </td> -->
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5 id="teacher">
+                                        <% if(arr.교수명.length > 1) { %>
+                                        <%=arr.교수명[0]%> 외
+                                        <%=arr.교수명.length - 1%>명
+                                        <% } else {%>
+                                        <%=arr.교수명%>
+                                        <%}%>
+                                    </h5>
+                                </td>
+                                <td>
+                                    <h5 id="division">
+                                        <%=arr.전공구분%>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <% }); %>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <script src="/js/filter.js"></script>
+        <script src="/js/app.js"></script>
+
+    <%- include ('footer') %>
