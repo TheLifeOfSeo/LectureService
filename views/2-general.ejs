@@ -46,7 +46,11 @@
                                 </td>
                                 <td id="rate" rowspan="2">
                                     <h5>    
-                                        <%= (arr.강의평점 * 20).toFixed(1) + "%"%>
+                                        <% if(arr.강의평점 == "0") {%>
+                                            <%= "-"%>
+                                            <% } else { %>
+                                        <%= ((arr.강의평점 - 1) * 25).toFixed(1) + "%"%>
+                                        <%}%>
                                     </h5>
                                 </td>
                                 <!-- <td id="rate_count" rowspan="2">

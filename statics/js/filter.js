@@ -38,7 +38,7 @@ defaultButton.on("click", () => {
                 </td>
                 <td id="rate" rowspan="2">
                     <h5>
-                        ${(_row.강의평점 * 20).toFixed(1) + "%"}
+                    ${_row.강의평점 == "0" ? "-" : ((_row.강의평점 - 1) * 25).toFixed(1) + "%"}
                     </h5>
                 </td>
             </tr>
@@ -90,7 +90,7 @@ incButton.on("click", () => {
                 </td>
                 <td id="rate" rowspan="2">
                     <h5>
-                        ${(_row.강의평점 * 20).toFixed(1) + "%"}
+                    ${_row.강의평점 == "0" ? "-" : ((_row.강의평점 - 1) * 25).toFixed(1) + "%"}
                     </h5>
                 </td>
             </tr>
@@ -142,7 +142,7 @@ decButton.on("click", () => {
                 </td>
                 <td id="rate" rowspan="2">
                     <h5>
-                        ${(_row.강의평점 * 20).toFixed(1) + "%"}
+                    ${_row.강의평점 == "0" ? "-" : ((_row.강의평점 - 1) * 25).toFixed(1) + "%"}
                     </h5>
                 </td>
             </tr>
@@ -203,7 +203,7 @@ majorSelection.on("change", () => {
                 </td>
                 <td id="rate" rowspan="2">
                     <h5>
-                        ${(_row.강의평점 * 20).toFixed(1) + "%"}
+                    ${_row.강의평점 == "0" ? "-" : ((_row.강의평점 - 1) * 25).toFixed(1) + "%"}
                     </h5>
                 </td>
             </tr>
@@ -262,7 +262,7 @@ majorDetailSelection.on("change", () => {
                 </td>
                 <td id="rate" rowspan="2">
                     <h5>
-                        ${(_row.강의평점 * 20).toFixed(1) + "%"}
+                    ${_row.강의평점 == "0" ? "-" : ((_row.강의평점 - 1) * 25).toFixed(1) + "%"}
                     </h5>
                 </td>
             </tr>
@@ -322,7 +322,7 @@ ageSelection.on("change", () => {
                 </td>
                 <td id="rate" rowspan="2">
                     <h5>
-                        ${(_row.강의평점 * 20).toFixed(1) + "%"}
+                    ${_row.강의평점 == "0" ? "-" : ((_row.강의평점 - 1) * 25).toFixed(1) + "%"}
                     </h5>
                 </td>
             </tr>
@@ -379,7 +379,7 @@ zeroSelection.on("change", (e) => {
                 </td>
                 <td id="rate" rowspan="2">
                     <h5>
-                        ${(_row.강의평점 * 20).toFixed(1) + "%"}
+                    ${_row.강의평점 == "0" ? "-" : ((_row.강의평점 - 1) * 25).toFixed(1) + "%"}
                     </h5>
                 </td>
             </tr>
