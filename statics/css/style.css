@@ -24,6 +24,22 @@
   font-weight: normal;
   font-style: normal;
 }
+#title a {
+  text-decoration: none;
+}
+#title a:link {
+  color: #e2efff;
+}
+#title a:visited {
+  color: #e2efff;
+}
+#title a:hover {
+  color: #F2F2F2;
+}
+#title:hover {
+  cursor: pointer;
+}
+
 body {
   background-color: #116F92;
   color: white;

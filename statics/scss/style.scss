@@ -34,6 +34,24 @@ $hover2: #F26A1B;
     font-style: normal;
 }
 
+#title {
+    a {
+        text-decoration: none;
+        &:link {
+            color : $color4;
+        }
+        &:visited {
+            color : $color4;
+        }
+        &:hover {
+            color : $color3;
+        }
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 body {
     background-color: $color2;
     color: white;
