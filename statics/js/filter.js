@@ -46,10 +46,10 @@ defaultButton.on("click", () => {
                 <td>
                     <h5 id="teacher">
                         ${
-                            _row.교수명.length > 1
-                            ? _row.교수명 +
+                            _row.교수명.match(',')
+                            ? _row.교수명.split(',', 1) +
                             " 외 " +
-                            (_row.교수명.length - 1) +
+                            (_row.교수명.split(',').length - 1) +
                             "명"
                             : _row.교수명
                         }
@@ -98,10 +98,10 @@ incButton.on("click", () => {
                 <td>
                     <h5 id="teacher">
                         ${
-                            _row.교수명.length > 1
-                            ? _row.교수명 +
+                            _row.교수명.match(',')
+                            ? _row.교수명.split(',', 1) +
                             " 외 " +
-                            (_row.교수명.length - 1) +
+                            (_row.교수명.split(',').length - 1) +
                             "명"
                             : _row.교수명
                         }
@@ -150,10 +150,10 @@ decButton.on("click", () => {
                 <td>
                     <h5 id="teacher">
                         ${
-                            _row.교수명.length > 1
-                            ? _row.교수명 +
+                            _row.교수명.match(',')
+                            ? _row.교수명.split(',', 1) +
                             " 외 " +
-                            (_row.교수명.length - 1) +
+                            (_row.교수명.split(',').length - 1) +
                             "명"
                             : _row.교수명
                         }
@@ -211,10 +211,10 @@ majorSelection.on("change", () => {
                 <td>
                     <h5 id="teacher">
                         ${
-                            _row.교수명.length > 1
-                            ? _row.교수명 +
+                            _row.교수명.match(',')
+                            ? _row.교수명.split(',', 1) +
                             " 외 " +
-                            (_row.교수명.length - 1) +
+                            (_row.교수명.split(',').length - 1) +
                             "명"
                             : _row.교수명
                         }
@@ -270,10 +270,10 @@ majorDetailSelection.on("change", () => {
                 <td>
                     <h5 id="teacher">
                         ${
-                            _row.교수명.length > 1
-                            ? _row.교수명 +
+                            _row.교수명.match(',')
+                            ? _row.교수명.split(',', 1) +
                             " 외 " +
-                            (_row.교수명.length - 1) +
+                            (_row.교수명.split(',').length - 1) +
                             "명"
                             : _row.교수명
                         }
@@ -330,10 +330,10 @@ ageSelection.on("change", () => {
                 <td>
                     <h5 id="teacher">
                         ${
-                            _row.교수명.length > 1
-                            ? _row.교수명 +
+                            _row.교수명.match(',')
+                            ? _row.교수명.split(',', 1) +
                             " 외 " +
-                            (_row.교수명.length - 1) +
+                            (_row.교수명.split(',').length - 1) +
                             "명"
                             : _row.교수명
                         }
@@ -387,10 +387,10 @@ zeroSelection.on("change", (e) => {
                 <td>
                     <h5 id="teacher">
                         ${
-                            _row.교수명.length > 1
-                            ? _row.교수명 +
+                            _row.교수명.match(',')
+                            ? _row.교수명.split(',', 1) +
                             " 외 " +
-                            (_row.교수명.length - 1) +
+                            (_row.교수명.split(',').length - 1) +
                             "명"
                             : _row.교수명
                         }

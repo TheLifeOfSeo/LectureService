@@ -256,16 +256,16 @@ table a:hover {
 .box-bar {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  padding: 0 5%;
+  padding: 10% 2%;
 }
 .box-bar .detail-box {
-  padding: 0 5%;
+  padding: 0 2%;
 }
 .box-bar .detail-box h4 {
-  font-size: 1.75vmax;
+  font-size: 1vmax;
 }
 .box-bar .detail-box p {
-  font-size: 1.25vmax;
+  font-size: 0.75vmax;
 }
 
 .switch-button {
