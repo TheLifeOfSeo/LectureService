@@ -224,7 +224,6 @@ majorSelection.on("change", () => {
                     <h5 id="division">
                         ${_row.학과 + " - "}
                         ${_row.전공구분}
-                        (${_row.학년})
                     </h5>
                 </td>
             </tr>
@@ -284,7 +283,6 @@ majorDetailSelection.on("change", () => {
                 <h5 id="division">
                     ${_row.학과 + " - "}
                     ${_row.전공구분}
-                    (${_row.학년})
                 </h5>
                 </td>
             </tr>

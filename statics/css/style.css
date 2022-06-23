@@ -227,8 +227,8 @@ table a:hover {
   height: 24px;
 }
 .sources table tfoot tr td:nth-child(1) {
+  padding-left: 6px;
   text-align: left;
-  padding-left: 5px;
 }
 .sources table tfoot tr td:nth-child(1) h5:hover {
   color: #F26A1B;
